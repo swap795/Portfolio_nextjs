@@ -1,12 +1,11 @@
 export const icons = {
   cPlusPlus: "cplusplus",
-  java: "java",
-  python: "python",
   html: "html",
   css: "css",
   js: "js",
   nodejs: "nodejs",
   reactJS: "reactJS",
+  nextjs: "nextjs",
   mysql: "mysql",
 };
 

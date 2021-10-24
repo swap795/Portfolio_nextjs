@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import Wave from "../../util/wave";
-import Icon from "../Icon";
 
 import { proPic } from "../../util/constants";
 import {
@@ -18,7 +18,8 @@ import {
   titleAnimation,
 } from "../../util/animations";
 
-export default function Home() {
+export default function Home({ strings }) {
+  const { welcome, to_my, portfolio } = strings;
   return (
     <motion.div
       variants={pageAnimation}
@@ -29,20 +30,20 @@ export default function Home() {
       <AboutStyle>
         <DescriptionStyle>
           <HideStyle>
-            <motion.h2 variants={titleAnimation}>Welcome</motion.h2>
+            <motion.h2 variants={titleAnimation}>{welcome}</motion.h2>
           </HideStyle>
           <HideStyle>
-            <motion.h2 variants={titleAnimation}>to my</motion.h2>
+            <motion.h2 variants={titleAnimation}>{to_my}</motion.h2>
           </HideStyle>
           <HideStyle>
             <motion.h2 variants={titleAnimation}>
-              <span>Portfolio!</span>
+              <span>{portfolio}</span>
             </motion.h2>
           </HideStyle>
         </DescriptionStyle>
         <ImgStyle>
           <motion.div variants={photoAnimation}>
-            <Icon
+            <Image
               src={`/assets/${proPic}.JPEG`}
               alt="proPic"
               width="460"

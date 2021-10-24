@@ -5,30 +5,37 @@ import Icon from "../Icon";
 
 import { icons as images } from "../../util/constants";
 
-export default function AboutMe() {
+export default function AboutMe({ strings }) {
   const icons = Object.values(images);
+  const {
+    from,
+    title,
+    motivated_description_1stHalf,
+    motivated_description_2ndHalf,
+    education_degree,
+    education_institution,
+  } = strings;
+
   return (
     <div>
       <div className="resume">
         <div className="header">
-          <h4>My name is Swapnil Thapa</h4>
+          <h4>{title}</h4>
           <p>
-            Motivated to apply the principle of <span>learn to be curios</span>{" "}
-            by educating outside of school work.
+            {motivated_description_1stHalf}{" "}
+            <span>{motivated_description_2ndHalf}</span>
           </p>
         </div>
         <div className="edcation">
-          <p>Studying Computer Engineering at Brigham Young University-Idaho</p>
+          <p>{`${education_degree} ${from} ${education_institution}`}</p>
         </div>
         <div>
-          <div>This will be all the pictures</div>
           <SkillsContainer>
             {icons.map((icon) => (
               <Icon
+                key={`icons-${icon}`}
                 src={`/assets/${icon}.png`}
                 alt={`${icon}`}
-                width="100"
-                height="100"
               />
             ))}
           </SkillsContainer>

@@ -2,26 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function NavBar() {
+export default function NavBar({ strings }) {
+  const { home, about_me, projects, contact_me } = strings;
   return (
     <NavStyle>
       <Link href="/">
-        <a>Home</a>
+        <a>{home}</a>
       </Link>
       <ul>
         <li>
           <Link href="/about">
-            <a>About Me</a>
+            <a>{about_me}</a>
           </Link>
         </li>
         <li>
           <Link href="/projects">
-            <a>Projects</a>
+            <a>{projects}</a>
           </Link>
         </li>
         <li>
           <Link href="/contact">
-            <a>Contact Me</a>
+            <a>{contact_me}</a>
           </Link>
         </li>
       </ul>
