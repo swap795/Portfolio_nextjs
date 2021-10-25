@@ -4,8 +4,14 @@ import styles from "../styles/Home.module.css";
 
 import NavBar from "../app/src/Components/NavBar";
 import Home from "../app/src/Components/Home";
+import TimeLine from "../app/src/Components/TimeLine";
 
-export default function index({ mainStrings, homeStrings }) {
+export default function index({
+  mainStrings,
+  homeStrings,
+  commonStrings,
+  timelineData,
+}) {
   return (
     <div>
       <Head>
@@ -15,6 +21,7 @@ export default function index({ mainStrings, homeStrings }) {
       </Head>
       <main>
         <Home strings={homeStrings} />
+        <TimeLine strings={commonStrings} timelineEvents={timelineData} />
       </main>
     </div>
   );
@@ -22,22 +29,33 @@ export default function index({ mainStrings, homeStrings }) {
 
 export async function getStaticProps() {
   // TODO: once deployed change the URL
-  const strings = await fetch("http://localhost:3000/api/strings/strings").then(
-    (res) => res.json()
-  );
-  const homeStrings = await fetch(
-    "http://localhost:3000/api/strings/homeStrings"
-  ).then((res) => res.json());
 
-  const commonStrings = await fetch(
-    "http://localhost:3000/api/strings/commonStrings"
-  ).then((res) => res.json());
+  const [
+    { value: strings = {} },
+    { value: homeStrings = {} },
+    { value: commonStrings = {} },
+    { value: timelineData = {} },
+  ] = await Promise.allSettled([
+    fetch("http://localhost:3000/api/strings/strings").then((res) =>
+      res.json()
+    ),
+    fetch("http://localhost:3000/api/strings/homeStrings").then((res) =>
+      res.json()
+    ),
+    fetch("http://localhost:3000/api/strings/commonStrings").then((res) =>
+      res.json()
+    ),
+    fetch("http://localhost:3000/api/data/timelineData").then((res) =>
+      res.json()
+    ),
+  ]);
 
   return {
     props: {
       mainStrings: strings,
       homeStrings,
       commonStrings,
+      timelineData,
     },
   };
 }

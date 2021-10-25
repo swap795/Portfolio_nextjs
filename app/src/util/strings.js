@@ -24,6 +24,8 @@ export const commonStrings = {
   projects: "Projects",
   contact_me: "Contact me",
   in_string: "in",
+  and: "and",
+  workExperience: "Work Experience",
 };
 
 export const hobbyStrings = {};
