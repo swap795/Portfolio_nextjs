@@ -12,13 +12,13 @@ export default function NavBar({ strings }) {
     <NavStyle>
       <Link href="/">
         <Item>
-          <a>{home}</a>
+          <A>{home}</A>
         </Item>
       </Link>
       <Row>
         <Link href="/about">
           <Item>
-            <a>{about_me}</a>
+            <A active={pathname === "/about"}>{about_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -29,7 +29,7 @@ export default function NavBar({ strings }) {
         </Link>
         <Link href="/projects">
           <Item>
-            <a>{projects}</a>
+            <A active={pathname === "/projects"}>{projects}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -40,7 +40,7 @@ export default function NavBar({ strings }) {
         </Link>
         <Link href="/contactMe">
           <Item>
-            <a>{contact_me}</a>
+            <A active={pathname === "/contactMe"}>{contact_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
@@ -61,15 +61,8 @@ const NavStyle = styled.div`
   min-height: 10vh;
   margin: auto;
   padding: 0 10rem;
+  /* background: #1e1e1e; */
   background: #282828;
-
-  a {
-    color: white;
-    text-decoration: none;
-    /* font-size: 1.5rem; */
-    font-family: "Lobster", cursive;
-    font-weight: lighter;
-  }
 `;
 
 const Row = styled.div`
@@ -83,9 +76,11 @@ const Item = styled.div`
   border-radius: 4rem;
 
   :hover {
-    background-color: #535050;
     cursor: pointer;
-    box-shadow: 5px 10px 8px #111111;
+
+    a {
+      color: #ffffff;
+    }
   }
 `;
 
@@ -95,4 +90,13 @@ const ItemAnimation = styled(motion.div)`
   background-color: #23d997;
   width: 0%;
   height: 0.3rem;
+`;
+
+const A = styled.a`
+  color: ${({ active }) => (active ? "#ffffff" : "#9e9e9e")};
+  text-decoration: none;
+  /* font-size: 1.5rem; */
+  font-family: "Lobster", cursive;
+  font-weight: lighter;
+  transition: color 0.75s ease;
 `;
