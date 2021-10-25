@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Icon({ src, alt, width, height }) {
-  return <ImageContainer src={src} alt={alt} />;
+  return <ImageContainer src={src} alt={alt} width={width} height={height} />;
 }
 
 const ImageContainer = styled.img`
@@ -14,4 +14,5 @@ const ImageContainer = styled.img`
   border: solid 5px #5bafb7;
   border-radius: 6rem;
   padding: 0.5rem;
+  margin: 0.5rem;
 `;

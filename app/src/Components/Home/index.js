@@ -46,7 +46,7 @@ export default function Home({ strings }) {
             <Image
               src={`/assets/${proPic}.JPEG`}
               alt="proPic"
-              width="460"
+              width="490"
               height="400"
             />
           </motion.div>

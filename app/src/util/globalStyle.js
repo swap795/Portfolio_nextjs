@@ -53,7 +53,7 @@ span{
 }
 
 a{
-   font-size: 1.1.rem;
+   font-size: 1.2rem;
 }
 
 p{
