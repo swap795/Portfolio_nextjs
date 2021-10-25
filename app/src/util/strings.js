@@ -6,7 +6,8 @@ export const aboutMeStringBundle = {
   title: "My name is Swapnil Thapa",
   motivated_description_1stHalf: "Motivated to apply the principle of",
   motivated_description_2ndHalf: "learn and be curious",
-  education_degree: "Bachelor's of Science in Computer Engineering",
+  education_degree: "Bachelor's of Science",
+  education_major: "Computer Engineering",
   education_institution: "Brigham Young University-Idaho",
 };
 
@@ -22,4 +23,7 @@ export const commonStrings = {
   about_me: "About me",
   projects: "Projects",
   contact_me: "Contact me",
+  in_string: "in",
 };
+
+export const hobbyStrings = {};

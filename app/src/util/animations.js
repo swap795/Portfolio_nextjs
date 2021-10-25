@@ -71,6 +71,36 @@ export const fadeAnimation = {
   },
 };
 
+export const descriptionAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 200,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 2,
+      ease: "easeOut",
+    },
+  },
+};
+
+export const delayedDescriptionAnimation = {
+  hidden: {
+    opacity: 0,
+    x: 500,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export const lineAnimation = {
   hidden: {
     width: "0%",

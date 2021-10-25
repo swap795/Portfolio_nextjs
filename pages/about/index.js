@@ -1,12 +1,13 @@
 import React from "react";
 
 import AboutMe from "../../app/src/Components/AboutMe";
+import Hobby from "../../app/src/Components/Hobby";
 
 export default function About({ strings }) {
   return (
     <>
       <AboutMe strings={strings} />
-      {/* TODO: timeline */}
+      <Hobby strings={strings} />
     </>
   );
 }
