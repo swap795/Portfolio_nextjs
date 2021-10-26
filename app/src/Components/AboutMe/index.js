@@ -18,6 +18,7 @@ import {
   ImgStyle,
 } from "../../util/styles";
 import { motion } from "framer-motion";
+import BouncingLoader from "../BouncingLoader";
 
 export default function AboutMe({ strings }) {
   const icons = Object.values(images);
@@ -71,6 +72,7 @@ export default function AboutMe({ strings }) {
               ))}
             </SkillsContainer>
           </div>
+          <BouncingLoader />
         </AboutStyle>
       </motion.div>
     </Wrapper>

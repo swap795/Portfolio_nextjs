@@ -1,8 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Icon({ src, alt, width, height }) {
-  return <ImageContainer src={src} alt={alt} width={width} height={height} />;
+export default function Icon({ children, src, alt, width, height, noIcon }) {
+  return (
+    <>
+      {!noIcon && (
+        <ImageContainer src={src} alt={alt} width={width} height={height} />
+      )}
+      {children}
+    </>
+  );
 }
 
 const ImageContainer = styled.img`
