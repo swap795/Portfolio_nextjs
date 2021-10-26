@@ -56,13 +56,17 @@ export default function NavBar({ strings }) {
 
 const NavStyle = styled.div`
   display: flex;
+  flex: 1;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   min-height: 10vh;
   margin: auto;
   padding: 0 10rem;
-  /* background: #1e1e1e; */
   background: #282828;
+  width: 100%;
 `;
 
 const Row = styled.div`
