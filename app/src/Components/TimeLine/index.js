@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBriefcase,
-  faGraduationCap,
-} from "@fortawesome/free-solid-svg-icons";
 
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
+import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-
-import { AboutStyle, DescriptionStyle } from "../../util/styles";
-import { scrollReveal } from "../../util/animations";
-import ScrollAnimation from "../../util/components/ScrollAnimation";
 
 import TimeLineContent from "./TimeLineContent";
 

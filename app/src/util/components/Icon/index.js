@@ -3,14 +3,18 @@ import styled from "styled-components";
 
 export default function Icon({ children, src, alt, width, height, noIcon }) {
   return (
-    <>
+    <Wrapper>
       {!noIcon && (
         <ImageContainer src={src} alt={alt} width={width} height={height} />
       )}
       {children}
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+`;
 
 const ImageContainer = styled.img`
   width: ${({ width }) => (width ? width : "120px")};

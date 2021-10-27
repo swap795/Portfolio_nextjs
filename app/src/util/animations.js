@@ -166,3 +166,23 @@ export const timelineAnimation = {
     },
   },
 };
+
+export const backAndForth = {
+  // hidden: {
+  //   opacity: 0,
+  // },
+  show: {
+    opacity: 1,
+    y: [
+      -70, 0, -40, 0, -30, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, -40, -70,
+    ],
+    transition: {
+      type: "spring",
+      delay: 3,
+      duration: 7,
+      ease: "linear",
+      repeat: Infinity,
+    },
+  },
+};
