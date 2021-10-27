@@ -67,11 +67,23 @@ const NavStyle = styled.div`
   padding: 0 10rem;
   background: #282828;
   width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
   justify-content: space-evenly;
+
+  @media (max-width: 1300px) {
+    padding: 2rem;
+    justify-content: space-around;
+    width: 100%;
+  }
 `;
 
 const Item = styled.div`
@@ -85,6 +97,10 @@ const Item = styled.div`
     a {
       color: #ffffff;
     }
+  }
+
+  @media (max-width: 1300px) {
+    padding: 0;
   }
 `;
 

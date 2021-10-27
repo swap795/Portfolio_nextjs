@@ -7,11 +7,13 @@ import styled from "styled-components";
 */
 export const AboutStyle = styled.div`
   min-height: 90vh;
+  width: 90vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5rem 10rem;
   color: white;
+  overflow: hidden;
 `;
 
 export const DescriptionStyle = styled.div`
