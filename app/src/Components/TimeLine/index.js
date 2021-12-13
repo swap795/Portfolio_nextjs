@@ -33,6 +33,7 @@ export default function TimeLine({ strings, timelineEvents }) {
               return (
                 <TimeLineContent
                   {...{
+                    key: `timeline-${timelineEvent.title}`,
                     timelineEvent,
                     background,
                     descriptionColor,

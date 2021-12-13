@@ -168,9 +168,9 @@ export const timelineAnimation = {
 };
 
 export const backAndForth = {
-  // hidden: {
-  //   opacity: 0,
-  // },
+  hidden: {
+    opacity: 0,
+  },
   show: {
     opacity: 1,
     y: [

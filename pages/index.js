@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-import NavBar from "../app/src/Components/NavBar";
 import Home from "../app/src/Components/Home";
 import TimeLine from "../app/src/Components/TimeLine";
 
@@ -28,7 +27,7 @@ export default function index({
 }
 
 export async function getStaticProps() {
-  // TODO: once deployed change the URL
+  // TODO: Check if fetch url needs to be changed after deployment
 
   const [
     { value: strings = {} },

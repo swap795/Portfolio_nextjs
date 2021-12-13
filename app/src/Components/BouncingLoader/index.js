@@ -9,17 +9,14 @@ import { backAndForth } from "../../util/animations";
 export default function BouncingLoader({
   loadMoreClicked,
   setLoadMoreClicked,
+  variants,
 }) {
-  const stopAnimation = loadMoreClicked && backAndForth;
   return (
-    loadMoreClicked && (
+    !loadMoreClicked && (
       <Wrapper
-        variants={stopAnimation}
-        initial="hidden"
-        animate="show"
-        exit="exit"
+        variants={variants}
         whileHover={{ scale: 1.1 }}
-        onClick={() => setLoadMoreClicked(false)}
+        onClick={() => setLoadMoreClicked(true)}
       >
         <Icon
           src={"/assets/waveHand.png"}

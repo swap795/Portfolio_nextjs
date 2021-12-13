@@ -98,7 +98,7 @@ export default function handler(req, res) {
       heading: "School Project",
       description_1: "Glove control car",
       description_2:
-        "Built an rc car that can be driven by tilting your hands.",
+        "Built an rc car that can be driven by the gestures of your hand.",
       icon: "/assets/c.png",
       occupation: "education",
       technologies: [

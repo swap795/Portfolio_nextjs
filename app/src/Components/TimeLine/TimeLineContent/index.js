@@ -28,9 +28,26 @@ export default function TimeLineContent({
   } = timelineEvent;
 
   const fontAwesome = occupation === "work" ? faBriefcase : faGraduationCap;
+
+  const Icon =
+    occupation === "personal" ? (
+      <img
+        className="vertical-timeline-element-icon bounce-in"
+        src={icon}
+        alt={icon}
+      />
+    ) : (
+      <FontAwesomeIcon
+        style={{
+          width: "40%",
+          height: "40%",
+        }}
+        icon={fontAwesome}
+      />
+    );
+
   return (
     <VerticalTimelineElement
-      key={`timelineEvents-${id}-${title}`}
       className="vertical-timeline-element"
       contentStyle={{
         background: background,
@@ -44,28 +61,12 @@ export default function TimeLineContent({
         background: "rgb(33, 150, 243)",
         color: "#fff",
       }}
-      icon={
-        occupation === "personal" ? (
-          <img
-            className="vertical-timeline-element-icon bounce-in"
-            src={icon}
-            alt={icon}
-          />
-        ) : (
-          <FontAwesomeIcon
-            style={{
-              width: "40%",
-              height: "40%",
-            }}
-            icon={fontAwesome}
-          />
-        )
-      }
+      icon={Icon}
     >
       <div className="bounce-in">
         <Row>
           {technologies?.map((tech) => (
-            <Tag key={`technologies-${id}-${title}`}>
+            <Tag key={`technologies-${tech}`}>
               <Item>{tech}</Item>
             </Tag>
           ))}

@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       {/* Every page will have its own pageProps, so grab the strings from that pageProps */}
-      <NavBar strings={pageProps.commonStrings || pageProps.strings} />
+      <NavBar strings={pageProps?.commonStrings || pageProps?.strings} />
       <Component {...pageProps} />
     </>
   );
