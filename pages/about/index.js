@@ -7,7 +7,7 @@ export default function About({ strings }) {
   return (
     <>
       <AboutMe strings={strings} />
-      <Hobby strings={strings} />
+      {/* <Hobby strings={strings} /> */}
     </>
   );
 }

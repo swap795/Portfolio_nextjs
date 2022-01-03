@@ -5,6 +5,7 @@ export default function handler(req, res) {
         id: "1",
         title: "Web Developer Intern",
         company: "The Church of Jesus Christ of Latter-day Saints",
+        time: "Janruary 2020 - July 2020",
         description: [
           "Debug, troubleshoot, refine dynamic Web Apps and user interfaces for a range of applications using web technologies.",
           "Optimized code and worked in an Agile Software development environment to gather, collaborate, and organize work with project team and cross-functional teams.",
@@ -15,6 +16,7 @@ export default function handler(req, res) {
         id: "2",
         title: "Software Dev Engineer 1",
         company: "The Church of Jesus Christ of Latter-day Saints",
+        time: "August 2020 - Present",
         description: [
           "Developed a web application to help the church's members to connect with their families, classes, and ways for members to continue their responsibilities by staying connected.",
           "Helped fill the gaps within the church members in their communities to stay connected with each other by consolidating church's blog, articles, magazines and many other resources provided by the church into the app.",
@@ -30,6 +32,7 @@ export default function handler(req, res) {
           "Executed HC-SR501 PIR motion detector into the main project to detect movements near the system using FPGA board (Xilinx Artix-7)",
           "Delivered testing codes to resolve why the state machine was not moving through the different states.",
         ],
+        src: "/assets/",
       },
       {
         id: "2",
@@ -39,22 +42,25 @@ export default function handler(req, res) {
           "Designed the User Interface of the scanner app.",
           "Analyzed by undertaking exactly 100 surveys to get feedback on the User Experience of the app.",
         ],
+        src: "/assets/",
       },
       {
-        id: "2",
+        id: "3",
         title: "COVID-19 Tracker",
         description: [
           "Developed and deployed a responsive COVID-19 tracking webpage using React and firebase.",
           "User interface using a graph and a map that changes based on case types to visualize JSON data coming from an API endpoints.",
         ],
+        src: "/assets/",
       },
       {
-        id: "3",
-        title: "Glove Control Car",
+        id: "4",
+        title: "Glove Control Car (Team-oriented)",
         description: [
           "Developed a motion sensor rc car that can be driven by the gestures of your hand.",
           "Implemented MPU-6050 gyroscope for motion sensing to send data through 2 HC-05 bluetooth modules and various other equipments/tools to accomplish an rc size car. ",
         ],
+        src: "/assets/",
       },
     ],
   });

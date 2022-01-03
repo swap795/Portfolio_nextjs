@@ -129,7 +129,7 @@ export default function handler(req, res) {
     },
     11: {
       id: 11,
-      date: "2021 - Present",
+      date: "Aug 2021 - Present",
       title: "First Job!!!",
       heading: "Work",
       description_1: "I am currently working as a Software Dev Engineer 1.",

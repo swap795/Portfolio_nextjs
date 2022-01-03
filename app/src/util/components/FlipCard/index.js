@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function FlipCard({ title, company, description }) {
+export default function FlipCard({ title, company, description, time }) {
   return (
     <FlipCardOuter>
       <FlipCardInner>
@@ -9,7 +9,7 @@ export default function FlipCard({ title, company, description }) {
           <h1>{title}</h1>
         </CardFront>
         <CardBack>
-          <h3>{company}</h3>
+          <h3>{time}</h3>
         </CardBack>
       </FlipCardInner>
     </FlipCardOuter>

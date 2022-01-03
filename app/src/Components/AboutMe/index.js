@@ -24,6 +24,7 @@ import {
 
 import BouncingLoader from "../BouncingLoader";
 import TimeLine from "../TimeLine";
+import Gallery from "./Gallery";
 
 export default function AboutMe({ strings }) {
   const icons = Object.values(images);
@@ -40,7 +41,6 @@ export default function AboutMe({ strings }) {
 
   const [experiences, setExperiences] = useState(null);
   const [loadMoreClicked, setLoadMoreClicked] = useState(false);
-  const [isFlipCard, setIsFlipCard] = useState(false);
   const moreAboutMeRef = useRef(null);
 
   const stopAnimation = !loadMoreClicked && backAndForth;
@@ -49,7 +49,7 @@ export default function AboutMe({ strings }) {
     if (loadMoreClicked) {
       moreAboutMeRef.current?.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        block: "center",
       });
     } else {
       console.info("Load More is not clicked");
@@ -68,123 +68,118 @@ export default function AboutMe({ strings }) {
     return experiences?.work?.sort((a, b) => b.id - a.id);
   }, [experiences]);
 
-  console.log({ isFlipCard });
+  const sortedProjects = useMemo(() => {
+    return experiences?.projects?.sort((a, b) => b.id - a.id);
+  }, [experiences]);
+
   return (
-    <Wrapper>
-      <motion.div
-        variants={pageAnimation}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-      >
-        <>
-          <AboutStyle>
-            <DescriptionStyle>
-              <div>
-                <motion.h4 variants={fadeAnimation}>{title}</motion.h4>
-                <motion.p variants={fadeAnimation}>
-                  {motivated_description_1stHalf}{" "}
-                  <motion.span variants={fadeAnimation}>
-                    {motivated_description_2ndHalf}
-                  </motion.span>
-                </motion.p>
-              </div>
-              <motion.div>
-                <motion.p variants={descriptionAnimation}>
-                  {education_degree} {in_string}
-                  <motion.span variants={delayedDescriptionAnimation}>
-                    {" "}
-                    {education_major}{" "}
-                  </motion.span>
-                  {from} {education_institution}
-                </motion.p>
-              </motion.div>
-            </DescriptionStyle>
-            <SkillsContainer>
-              {icons.map((icon) => (
-                <motion.div key={`icons-${icon}`} variants={photoAnimation}>
-                  <Icon src={`/assets/${icon}.png`} alt={`${icon}`} />
-                </motion.div>
-              ))}
-            </SkillsContainer>
-            <BouncingLoader
-              {...{
-                loadMoreClicked,
-                setLoadMoreClicked,
-                variants: stopAnimation,
-              }}
-            />
-          </AboutStyle>
-          {(loadMoreClicked || isFlipCard) && (
-            <>
-              <MoreAboutMe ref={moreAboutMeRef}>
-                <h2>{Object.keys(experiences)[0]}</h2>
+    <>
+      <Wrapper>
+        <motion.div
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
+          <>
+            {experiences && (
+              <ExperiencesWrapper>
+                <h4>{Object.keys(experiences)[0].toUpperCase()}</h4>
                 <CardsWrapper>
                   {experiences &&
                     sortedExperiences.map((item) => (
                       <FlipCard
-                        key={`flipcard-item-${item.id}`}
+                        key={`flipcard-item-${item.title}`}
                         title={item.title}
                         company={item.company}
                         description={item.description}
+                        time={item.time}
                       />
                     ))}
                 </CardsWrapper>
-              </MoreAboutMe>
-              {/* <MoreAboutMe>
-                <LeftContainer>
-                  <Image
-                    src={aboutMe[0].img}
-                    alt="proPic"
-                    width="400rem"
-                    height="300rem"
+              </ExperiencesWrapper>
+            )}
+            <SkillsWrapper>
+              <DescriptionStyle>
+                <div>
+                  <motion.h4 variants={fadeAnimation}>{title}</motion.h4>
+                  <motion.p variants={fadeAnimation}>
+                    {motivated_description_1stHalf}{" "}
+                    <motion.span variants={fadeAnimation}>
+                      {motivated_description_2ndHalf}
+                    </motion.span>
+                  </motion.p>
+                </div>
+                <motion.div>
+                  <motion.p variants={descriptionAnimation}>
+                    {education_degree} {in_string}
+                    <motion.span variants={delayedDescriptionAnimation}>
+                      {" "}
+                      {education_major}{" "}
+                    </motion.span>
+                    {from} {education_institution}
+                  </motion.p>
+                </motion.div>
+              </DescriptionStyle>
+              <Languages>
+                {icons.map((icon) => (
+                  <motion.div key={`icons-${icon}`} variants={photoAnimation}>
+                    <Icon src={`/assets/${icon}.png`} alt={`${icon}`} />
+                  </motion.div>
+                ))}
+              </Languages>
+              <BouncingLoader
+                {...{
+                  loadMoreClicked,
+                  setLoadMoreClicked,
+                  variants: stopAnimation,
+                }}
+              />
+            </SkillsWrapper>
+          </>
+        </motion.div>
+      </Wrapper>
+      {loadMoreClicked && (
+        <>
+          {sortedProjects.map((item) => {
+            const switchImg = item.id % 2 === 0;
+            const addRef = Boolean(item.id === "4");
+            const projectId = item?.id;
+
+            return (
+              projectId && (
+                <>
+                  <Gallery
+                    {...{
+                      key: `projects-${projectId}`,
+                      imgSrc: "/assets/athlete-small.png",
+                      imgAlt: "athlete small pic",
+                      size: "medium",
+                      switchImg,
+                      title: item.title,
+                      descriptions: item.description,
+                      ...(addRef && { forwardRef: moreAboutMeRef }),
+                    }}
                   />
-                </LeftContainer>
-                <Description>
-                  <Paragraph ref={textAreaRef}>
-                    {aboutMe[0].description}
-                  </Paragraph>
-                </Description>
-              </MoreAboutMe> */}
-              {/* {aboutMe
-                .filter((item) => item.id !== "passion")
-                .map(({ id, description, img }) => (
-                  <MoreAboutMe key={`aboutMe-${id}`}>
-                    <LeftContainer>
-                      <Image
-                        src={img}
-                        alt={img}
-                        width="400rem"
-                        height="300rem"
-                      />
-                    </LeftContainer>
-                    <Description>
-                      <Paragraph>{description}</Paragraph>
-                    </Description>
-                  </MoreAboutMe>
-                ))} */}
-            </>
-          )}
+                </>
+              )
+            );
+          })}
         </>
-      </motion.div>
-    </Wrapper>
+      )}
+    </>
   );
 }
 
-const SkillsContainer = styled.div`
+const Languages = styled.div`
   display: grid;
   grid-template-columns: 10rem 10rem 10rem;
 `;
 
 const Wrapper = styled.div`
   background: #1b1b1b;
-`;
-
-const MoreAboutMe = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 90vh;
+  /* border: 2px solid red; */
+  height: 90vh;
 `;
 
 const CardsWrapper = styled.div`
@@ -196,11 +191,23 @@ const CardsWrapper = styled.div`
   height: 100%;
 `;
 
-const Card = styled.div``;
+const SkillsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 10rem 0 10rem;
+  color: white;
+  overflow: hidden;
+`;
 
-const FrontSide = styled.div``;
-
-const BackSide = styled.div``;
+const ExperiencesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 1rem 0 0 0;
+`;
 
 const LeftContainer = styled.div`
   z-index: 1;
