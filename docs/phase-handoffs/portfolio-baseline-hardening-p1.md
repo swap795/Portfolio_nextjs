@@ -1,6 +1,6 @@
 # Portfolio Preservation and Baseline Hardening Handoff
 
-- Status: REVIEW
+- Status: COMPLETE - review open
 - Updated: 2026-09-16
 - Branch: portfolio-redesign
 - Base: origin/main at 4a6fda163e9f701447a801272ca818b5d6386fac
@@ -32,8 +32,8 @@
 - `npm run build`: PASS, all Pages Router routes generated.
 - Production runtime smoke: PASS for `/`, `/about`, `/projects`, `/contactMe`, `/404`, missing route, APIs, and excluded video path.
 - Browser inspection: PASS on desktop home/about/placeholders with no warning or error logs; mobile viewport override was unavailable in the connected browser, with responsive CSS statically linted and build-verified.
+- Direct review PR: https://github.com/swap795/Portfolio_nextjs/pull/7 (open, not merged; no CI checks are configured).
 
 ## Remaining Work
 
-- Push `portfolio-redesign` and open a direct review PR without merging.
-- Keep visual design choices for the next subphase.
+- Keep visual design choices for the next subphase: typography, composition, imagery, motion direction, and final media choices remain unresolved by design.
