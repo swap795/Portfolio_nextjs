@@ -16,6 +16,8 @@ export const AboutStyle = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
     padding: 0 1rem;
   }
 `;
@@ -27,6 +29,11 @@ export const DescriptionStyle = styled.div`
 
   h2 {
     font-weight: lighter;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-right: 0;
   }
 `;
 
@@ -41,6 +48,8 @@ export const ImgStyle = styled.div`
   min-width: 70%;
 
   img {
+    max-width: 100%;
+    height: auto;
     /* -webkit-mask-image: radial-gradient(ellipse 63% 78% at 48% 50%, black 20%, transparent 65%); */
     mask-image: radial-gradient(
       ellipse 63% 78% at 48% 50%,
@@ -51,7 +60,8 @@ export const ImgStyle = styled.div`
   }
 
   @media (max-width: 768px) {
-    min-width: 30%;
+    width: 100%;
+    min-width: 0;
   }
 `;
 

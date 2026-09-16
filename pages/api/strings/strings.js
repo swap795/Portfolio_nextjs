@@ -2,5 +2,5 @@
 import { strings } from "../../../app/src/util/strings";
 
 export default function handler(req, res) {
-  res.status(200).json(JSON.stringify(strings));
+  res.status(200).json(strings);
 }

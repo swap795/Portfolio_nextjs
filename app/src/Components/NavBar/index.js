@@ -3,9 +3,13 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { commonStrings as defaultStrings } from "../../util/strings";
 
-export default function NavBar({ strings }) {
-  const { home, about_me, projects, contact_me } = strings;
+export default function NavBar({ strings = {} }) {
+  const { home, about_me, projects, contact_me } = {
+    ...defaultStrings,
+    ...(strings || {}),
+  };
   const router = useRouter();
   const { pathname } = router;
   return (
@@ -84,6 +88,12 @@ const Row = styled.div`
     justify-content: space-around;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
 `;
 
 const Item = styled.div`
@@ -101,6 +111,10 @@ const Item = styled.div`
 
   @media (max-width: 1300px) {
     padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0 0.75rem;
   }
 `;
 

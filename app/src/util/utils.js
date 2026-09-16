@@ -1,19 +1,29 @@
-export function fetchWrapper(endpoint) {
-  const baseUrl = "http://localhost:3000/";
+/**
+ * @param {string} dateString
+ * @returns {[string, string]}
+ */
+export function extractMonthAndYear(dateString) {
+  const match = String(dateString).match(
+    /\b([A-Z][a-z]{2,})(?:\s+\d{1,2})?\s+(\d{4})\b/
+  );
 
-  return fetch(baseUrl + endpoint);
+  return match ? [match[1], match[2]] : ["", ""];
 }
 
-export function extractMonthAndYear(dateStr) {
-  const arr = dateStr.split(" ");
-
-  const month = arr[1];
-  const year = arr[3];
-
-  return [month, year];
-}
-
+/**
+ * @param {Date | string | number} date
+ * @returns {string}
+ */
 export function formatDate(date) {
-  const [month, year] = extractMonthAndYear(date.toString());
-  return `${month} ${year}`;
+  const parsedDate = date instanceof Date ? date : new Date(date);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return "";
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(parsedDate);
 }

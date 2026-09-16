@@ -1,15 +1,18 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-
 import Home from "../app/src/Components/Home";
 import TimeLine from "../app/src/Components/TimeLine";
+import {
+  commonStrings as commonStringsBundle,
+  homeStrings as homeStringsBundle,
+  strings as mainStringsBundle,
+} from "../app/src/util/strings";
+import { timelineData as timelineDataBundle } from "../app/src/util/portfolioData";
 
-export default function index({
-  mainStrings,
-  homeStrings,
-  commonStrings,
-  timelineData,
+export default function Index({
+  mainStrings = mainStringsBundle,
+  homeStrings = homeStringsBundle,
+  commonStrings = commonStringsBundle,
+  timelineData = timelineDataBundle,
 }) {
   return (
     <div>
@@ -27,34 +30,12 @@ export default function index({
 }
 
 export async function getStaticProps() {
-  // TODO: Check if fetch url needs to be changed after deployment
-
-  const [
-    { value: strings = {} },
-    { value: homeStrings = {} },
-    { value: commonStrings = {} },
-    { value: timelineData = {} },
-  ] = await Promise.allSettled([
-    fetch("http://localhost:3000/api/strings/strings").then((res) =>
-      res.json()
-    ),
-    fetch("http://localhost:3000/api/strings/homeStrings").then((res) =>
-      res.json()
-    ),
-    fetch("http://localhost:3000/api/strings/commonStrings").then((res) =>
-      res.json()
-    ),
-    fetch("http://localhost:3000/api/data/timelineData").then((res) =>
-      res.json()
-    ),
-  ]);
-
   return {
     props: {
-      mainStrings: strings,
-      homeStrings,
-      commonStrings,
-      timelineData,
+      mainStrings: mainStringsBundle,
+      homeStrings: homeStringsBundle,
+      commonStrings: commonStringsBundle,
+      timelineData: timelineDataBundle,
     },
   };
 }

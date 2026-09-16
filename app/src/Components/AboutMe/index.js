@@ -26,7 +26,7 @@ import BouncingLoader from "../BouncingLoader";
 import TimeLine from "../TimeLine";
 import Gallery from "./Gallery";
 
-export default function AboutMe({ strings }) {
+export default function AboutMe({ strings = {}, experiences = {} }) {
   const icons = Object.values(images);
   const {
     education_degree,
@@ -39,7 +39,6 @@ export default function AboutMe({ strings }) {
     title,
   } = strings;
 
-  const [experiences, setExperiences] = useState(null);
   const [loadMoreClicked, setLoadMoreClicked] = useState(false);
   const moreAboutMeRef = useRef(null);
 
@@ -51,26 +50,16 @@ export default function AboutMe({ strings }) {
         behavior: "smooth",
         block: "center",
       });
-    } else {
-      console.info("Load More is not clicked");
     }
-  }, [moreAboutMeRef, loadMoreClicked]);
-
-  useEffect(() => {
-    fetch("/api/data/moreAboutMe")
-      .then((res) => res.json())
-      .then((data) => {
-        setExperiences(data);
-      });
-  }, []);
+  }, [loadMoreClicked]);
 
   const sortedExperiences = useMemo(() => {
-    return experiences?.work?.sort((a, b) => b.id - a.id);
-  }, [experiences]);
+    return [...(experiences.work ?? [])].sort((a, b) => b.id - a.id);
+  }, [experiences.work]);
 
   const sortedProjects = useMemo(() => {
-    return experiences?.projects?.sort((a, b) => b.id - a.id);
-  }, [experiences]);
+    return [...(experiences.projects ?? [])].sort((a, b) => b.id - a.id);
+  }, [experiences.projects]);
 
   return (
     <>
@@ -82,20 +71,19 @@ export default function AboutMe({ strings }) {
           exit="exit"
         >
           <>
-            {experiences && (
+            {sortedExperiences.length > 0 && (
               <ExperiencesWrapper>
-                <h4>{Object.keys(experiences)[0].toUpperCase()}</h4>
+                <h4>WORK</h4>
                 <CardsWrapper>
-                  {experiences &&
-                    sortedExperiences.map((item) => (
-                      <FlipCard
-                        key={`flipcard-item-${item.title}`}
-                        title={item.title}
-                        company={item.company}
-                        description={item.description}
-                        time={item.time}
-                      />
-                    ))}
+                  {sortedExperiences.map((item) => (
+                    <FlipCard
+                      key={`flipcard-item-${item.title}`}
+                      title={item.title}
+                      company={item.company}
+                      description={item.description}
+                      time={item.time}
+                    />
+                  ))}
                 </CardsWrapper>
               </ExperiencesWrapper>
             )}
@@ -138,34 +126,24 @@ export default function AboutMe({ strings }) {
           </>
         </motion.div>
       </Wrapper>
-      {loadMoreClicked && (
-        <>
-          {sortedProjects.map((item) => {
-            const switchImg = item.id % 2 === 0;
-            const addRef = Boolean(item.id === "4");
-            const projectId = item?.id;
+      {loadMoreClicked &&
+        sortedProjects.map((item) => {
+          const switchImg = item.id % 2 === 0;
+          const addRef = String(item.id) === "4";
+          const projectId = item?.id;
 
-            return (
-              projectId && (
-                <>
-                  <Gallery
-                    {...{
-                      key: `projects-${projectId}`,
-                      imgSrc: "/assets/athlete-small.png",
-                      imgAlt: "athlete small pic",
-                      size: "medium",
-                      switchImg,
-                      title: item.title,
-                      descriptions: item.description,
-                      ...(addRef && { forwardRef: moreAboutMeRef }),
-                    }}
-                  />
-                </>
-              )
-            );
-          })}
-        </>
-      )}
+          return projectId ? (
+            <Gallery
+              key={`projects-${projectId}`}
+              media={item.media}
+              size="medium"
+              switchImg={switchImg}
+              title={item.title}
+              descriptions={item.description}
+              {...(addRef && { forwardRef: moreAboutMeRef })}
+            />
+          ) : null;
+        })}
     </>
   );
 }
@@ -173,12 +151,20 @@ export default function AboutMe({ strings }) {
 const Languages = styled.div`
   display: grid;
   grid-template-columns: 10rem 10rem 10rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+  }
 `;
 
 const Wrapper = styled.div`
   background: #1b1b1b;
   /* border: 2px solid red; */
-  height: 90vh;
+  min-height: 90vh;
+  height: auto;
 `;
 
 const CardsWrapper = styled.div`
@@ -198,6 +184,12 @@ const SkillsWrapper = styled.div`
   padding: 2rem 10rem 0 10rem;
   color: white;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
 `;
 
 const ExperiencesWrapper = styled.div`

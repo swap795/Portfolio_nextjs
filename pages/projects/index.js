@@ -1,23 +1,19 @@
-import React from "react";
-import { fetchWrapper } from "../../app/src/util/utils";
+import BaselinePlaceholder from "../../app/src/Components/BaselinePlaceholder";
+import { commonStrings } from "../../app/src/util/strings";
 
-export default function Projects() {
-  return <div></div>;
+export default function Projects({ strings = commonStrings }) {
+  return (
+    <BaselinePlaceholder
+      title={strings.projects}
+      message="Project details will be added during the portfolio redesign."
+    />
+  );
 }
 
 export async function getStaticProps() {
-  // TODO: once deployed change the URL
-  // const aboutMeStrings = await fetch(
-  //   "http://localhost:3000/api/strings/aboutMeStrings"
-  // ).then((res) => res.json());
-
-  const commongStrings = await fetchWrapper("api/strings/commonStrings").then(
-    (res) => res.json()
-  );
-
   return {
     props: {
-      strings: { ...commonStrings },
+      strings: commonStrings,
     },
   };
 }
