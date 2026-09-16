@@ -5,6 +5,8 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
 import TimeLineContent from "./TimeLineContent";
+import { formatDate } from "../../util/utils";
+import CenterTag from "../../util/components/CenterTag";
 
 export default function TimeLine({ strings, timelineEvents }) {
   const { projects, and, workExperience } = strings;
@@ -13,11 +15,13 @@ export default function TimeLine({ strings, timelineEvents }) {
   let titleColor = "#fff";
   let descriptionColor = "#ffffff";
 
+  const todaysDate = formatDate(new Date());
   return (
     <Wrapper>
       <H4>
         <Span>{`${projects} ${and} ${workExperience}`}</Span>
       </H4>
+      <CenterTag tagName={"h4"}>{todaysDate}</CenterTag>
       {timelineEvents && (
         <VerticalTimeline
           classname="vertical-timeline-custom-line"

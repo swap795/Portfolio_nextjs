@@ -14,6 +14,10 @@ export const AboutStyle = styled.div`
   padding: 5rem 10rem;
   color: white;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const DescriptionStyle = styled.div`
@@ -34,6 +38,7 @@ export const ImgStyle = styled.div`
   flex: 1;
   overflow: hidden;
   z-index: 2;
+  min-width: 70%;
 
   img {
     /* -webkit-mask-image: radial-gradient(ellipse 63% 78% at 48% 50%, black 20%, transparent 65%); */
@@ -43,6 +48,10 @@ export const ImgStyle = styled.div`
       transparent 65%
     );
     /* z-index: 2; */
+  }
+
+  @media (max-width: 768px) {
+    min-width: 30%;
   }
 `;
 

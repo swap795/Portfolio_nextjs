@@ -129,8 +129,8 @@ export default function handler(req, res) {
     },
     11: {
       id: 11,
-      date: "Aug 2021 - Present",
-      title: "First Job!!!",
+      date: "Aug 2021 - April 2022",
+      title: "Software Dev Engineer 1",
       heading: "Work",
       description_1: "I am currently working as a Software Dev Engineer 1.",
       icon: "/assets/nextjs.png",
@@ -154,6 +154,17 @@ export default function handler(req, res) {
       icon: "/assets/nextjs.png",
       occupation: "personal",
       technologies: ["ReactJS", "NextJS", "framer-motion", "styled-components"],
+    },
+    13: {
+      id: 13,
+      date: "May 2022",
+      title: "QA Automation Engineer",
+      heading: "Work",
+      description_1:
+        "New opportunity where the company is young in automation. So, taking my dev experience to build autoamtion framework.",
+      icon: "",
+      occupation: "work",
+      technologies: ["Java", "Selenium", "TestNG", "Cucumber", "Jenkins"],
     },
   });
 }

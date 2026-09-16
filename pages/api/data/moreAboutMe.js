@@ -5,7 +5,7 @@ export default function handler(req, res) {
         id: "1",
         title: "Web Developer Intern",
         company: "The Church of Jesus Christ of Latter-day Saints",
-        time: "Janruary 2020 - July 2020",
+        time: "Jan 2020 - July 2020",
         description: [
           "Debug, troubleshoot, refine dynamic Web Apps and user interfaces for a range of applications using web technologies.",
           "Optimized code and worked in an Agile Software development environment to gather, collaborate, and organize work with project team and cross-functional teams.",
@@ -16,7 +16,7 @@ export default function handler(req, res) {
         id: "2",
         title: "Software Dev Engineer 1",
         company: "The Church of Jesus Christ of Latter-day Saints",
-        time: "August 2020 - Present",
+        time: "Aug 2020 - Present",
         description: [
           "Developed a web application to help the church's members to connect with their families, classes, and ways for members to continue their responsibilities by staying connected.",
           "Helped fill the gaps within the church members in their communities to stay connected with each other by consolidating church's blog, articles, magazines and many other resources provided by the church into the app.",
@@ -61,6 +61,7 @@ export default function handler(req, res) {
           "Implemented MPU-6050 gyroscope for motion sensing to send data through 2 HC-05 bluetooth modules and various other equipments/tools to accomplish an rc size car. ",
         ],
         src: "/assets/",
+        videoUrl: "/assets/experience/glove-control-car.mp4",
       },
     ],
   });

@@ -114,8 +114,7 @@ export default function AboutMe({ strings }) {
                   <motion.p variants={descriptionAnimation}>
                     {education_degree} {in_string}
                     <motion.span variants={delayedDescriptionAnimation}>
-                      {" "}
-                      {education_major}{" "}
+                      {` ${education_major} `}
                     </motion.span>
                     {from} {education_institution}
                   </motion.p>
@@ -187,6 +186,7 @@ const CardsWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  padding-top: 2rem;
   width: 100%;
   height: 100%;
 `;
@@ -195,7 +195,7 @@ const SkillsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5rem 10rem 0 10rem;
+  padding: 2rem 10rem 0 10rem;
   color: white;
   overflow: hidden;
 `;
@@ -206,7 +206,7 @@ const ExperiencesWrapper = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 1rem 0 0 0;
+  padding: 2rem 0 1rem 0;
 `;
 
 const LeftContainer = styled.div`

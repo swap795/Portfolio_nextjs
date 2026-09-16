@@ -34,7 +34,7 @@ export default function Gallery({
             {descriptions &&
               descriptions.map((description) => <p>{description}</p>)}
           </FloatChild>
-          <FloatChild>
+          <FloatChild hasImg={true}>
             <img
               src={imgSrc}
               alt={imgAlt}
@@ -45,7 +45,7 @@ export default function Gallery({
         </>
       ) : (
         <>
-          <FloatChild>
+          <FloatChild hasImg={true}>
             <img
               src={imgSrc}
               alt={imgAlt}
@@ -75,7 +75,13 @@ const Wrapper = styled.div`
 
 const FloatChild = styled.div`
   flex: 1;
+  margin: 0 1rem;
   padding: 1rem;
+
+  ${({ hasImg }) =>
+    hasImg &&
+    `
+  `})}
 `;
 
 const H1 = styled.h1`
