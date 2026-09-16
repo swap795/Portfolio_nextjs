@@ -12,14 +12,14 @@
 - Confirmed `stash@{0}` remains present and untouched.
 - Created and verified an external backup at `/Users/swapnilthapa/Documents/GitHub/portfolio-baseline-backup-20260916-130612`.
 - Created preservation commit `9a0d03d5df0b9229339d57c5af156d006fe48bfd` before hardening.
-- Prepared the baseline-hardening changes as a separate commit.
+- Prepared the baseline-hardening changes as separate commits `3d7b59af8359fd72df5b060826ea8c72243aacfa` and `848d01a` (dependency-integrity follow-up).
 
 ## Decisions and Key Files
 
 - Preserve the current dirty source state in a dedicated checkpoint, then make separate baseline-hardening changes.
 - Keep the Pages Router and npm; exclude the 375 MB local video from Git and use an intentional placeholder contract.
 - Do not apply or copy any stash content.
-- Registry evidence on 2026-09-16 selected Next 16.3.5, React/React DOM 19.3.0, eslint-config-next 16.3.5, ESLint 9.39.5, TypeScript 6.0.3, and current React-compatible supporting packages. Emotion, MUI, and unused intersection/fontawesome packages were removed.
+- Registry evidence on 2026-09-16 selected Next 16.3.5, React/React DOM 19.3.0, eslint-config-next 16.3.5, ESLint 9.39.5, TypeScript 6.0.3, and current React-compatible supporting packages. Emotion, MUI, and unused `@fortawesome/fontawesome-free` were removed; `react-intersection-observer` was retained at 11.0.1 because the preserved scroll animation component imports it.
 - Static generation now imports shared local data; APIs return objects; project/contact routes are explicit placeholders; the Glove Control Car media is placeholder-only.
 
 ## Validation
@@ -35,5 +35,5 @@
 
 ## Remaining Work
 
-- Commit the staged baseline hardening, push `portfolio-redesign`, and open a direct review PR without merging.
+- Push `portfolio-redesign` and open a direct review PR without merging.
 - Keep visual design choices for the next subphase.
