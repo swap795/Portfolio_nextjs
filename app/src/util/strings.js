@@ -28,4 +28,10 @@ export const commonStrings = {
   workExperience: "Work Experience",
 };
 
+export const timelineStrings = {
+  projects: commonStrings.projects,
+  and: commonStrings.and,
+  workExperience: commonStrings.workExperience,
+};
+
 export const hobbyStrings = {};

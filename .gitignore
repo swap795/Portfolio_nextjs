@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# local media supplied outside Git for the redesign
+/public/assets/experiences/GloveControlCar.mp4

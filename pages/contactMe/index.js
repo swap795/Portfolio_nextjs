@@ -1,21 +1,19 @@
-import React from "react";
+import BaselinePlaceholder from "../../app/src/Components/BaselinePlaceholder";
+import { commonStrings } from "../../app/src/util/strings";
 
-export default function ContactMe() {
-  return <div></div>;
+export default function ContactMe({ strings = commonStrings }) {
+  return (
+    <BaselinePlaceholder
+      title={strings.contact_me}
+      message="Contact options will be added after a privacy-safe contact flow is approved."
+    />
+  );
 }
 
 export async function getStaticProps() {
-  // TODO: once deployed change the URL
-  // const aboutMeStrings = await fetch(
-  //   "http://localhost:3000/api/strings/aboutMeStrings"
-  // ).then((res) => res.json());
-  const commonStrings = await fetch(
-    "http://localhost:3000/api/strings/commonStrings"
-  ).then((res) => res.json());
-
   return {
     props: {
-      strings: { ...commonStrings },
+      strings: commonStrings,
     },
   };
 }

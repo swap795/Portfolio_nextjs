@@ -3,9 +3,13 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { commonStrings as defaultStrings } from "../../util/strings";
 
-export default function NavBar({ strings }) {
-  const { home, about_me, projects, contact_me } = strings;
+export default function NavBar({ strings = {} }) {
+  const { home, about_me, projects, contact_me } = {
+    ...defaultStrings,
+    ...(strings || {}),
+  };
   const router = useRouter();
   const { pathname } = router;
   return (
@@ -18,34 +22,31 @@ export default function NavBar({ strings }) {
       <Row>
         <Link href="/about">
           <Item>
-            <A active={pathname === "/about"}>{about_me}</A>
+            <A $active={pathname === "/about"}>{about_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/about" ? "5%" : "0%" }}
-              active={pathname === "/about"}
             />
           </Item>
         </Link>
         <Link href="/projects">
           <Item>
-            <A active={pathname === "/projects"}>{projects}</A>
+            <A $active={pathname === "/projects"}>{projects}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/projects" ? "4.5%" : "0%" }}
-              active={pathname === "/projects"}
             />
           </Item>
         </Link>
         <Link href="/contactMe">
           <Item>
-            <A active={pathname === "/contactMe"}>{contact_me}</A>
+            <A $active={pathname === "/contactMe"}>{contact_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/contactMe" ? "6.5%" : "0%" }}
-              active={pathname === "/contactMe"}
             />
           </Item>
         </Link>
@@ -84,6 +85,12 @@ const Row = styled.div`
     justify-content: space-around;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
 `;
 
 const Item = styled.div`
@@ -94,13 +101,17 @@ const Item = styled.div`
   :hover {
     cursor: pointer;
 
-    a {
+    span {
       color: #ffffff;
     }
   }
 
   @media (max-width: 1300px) {
     padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0 0.75rem;
   }
 `;
 
@@ -112,8 +123,8 @@ const ItemAnimation = styled(motion.div)`
   height: 0.3rem;
 `;
 
-const A = styled.a`
-  color: ${({ active }) => (active ? "#ffffff" : "#9e9e9e")};
+const A = styled.span`
+  color: ${({ $active }) => ($active ? "#ffffff" : "#9e9e9e")};
   text-decoration: none;
   /* font-size: 1.5rem; */
   font-family: "Lobster", cursive;

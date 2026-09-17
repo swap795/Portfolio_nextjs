@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBriefcase,
@@ -31,10 +32,12 @@ export default function TimeLineContent({
 
   const Icon =
     occupation === "personal" ? (
-      <img
+      <Image
         className="vertical-timeline-element-icon bounce-in"
         src={icon}
         alt={icon}
+        width={40}
+        height={40}
       />
     ) : (
       <FontAwesomeIcon
