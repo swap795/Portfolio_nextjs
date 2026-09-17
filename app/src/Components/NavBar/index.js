@@ -22,34 +22,31 @@ export default function NavBar({ strings = {} }) {
       <Row>
         <Link href="/about">
           <Item>
-            <A active={pathname === "/about"}>{about_me}</A>
+            <A $active={pathname === "/about"}>{about_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/about" ? "5%" : "0%" }}
-              active={pathname === "/about"}
             />
           </Item>
         </Link>
         <Link href="/projects">
           <Item>
-            <A active={pathname === "/projects"}>{projects}</A>
+            <A $active={pathname === "/projects"}>{projects}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/projects" ? "4.5%" : "0%" }}
-              active={pathname === "/projects"}
             />
           </Item>
         </Link>
         <Link href="/contactMe">
           <Item>
-            <A active={pathname === "/contactMe"}>{contact_me}</A>
+            <A $active={pathname === "/contactMe"}>{contact_me}</A>
             <ItemAnimation
               transition={{ duration: 0.75 }}
               initial={{ width: "0%" }}
               animate={{ width: pathname === "/contactMe" ? "6.5%" : "0%" }}
-              active={pathname === "/contactMe"}
             />
           </Item>
         </Link>
@@ -104,7 +101,7 @@ const Item = styled.div`
   :hover {
     cursor: pointer;
 
-    a {
+    span {
       color: #ffffff;
     }
   }
@@ -126,8 +123,8 @@ const ItemAnimation = styled(motion.div)`
   height: 0.3rem;
 `;
 
-const A = styled.a`
-  color: ${({ active }) => (active ? "#ffffff" : "#9e9e9e")};
+const A = styled.span`
+  color: ${({ $active }) => ($active ? "#ffffff" : "#9e9e9e")};
   text-decoration: none;
   /* font-size: 1.5rem; */
   font-family: "Lobster", cursive;
