@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ExperienceTabs } from "./components/experience-tabs";
 import { about, experiences, featuredProject, proofPoints, site } from "./content";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 function SignalGraphic() {
   return (
     <svg className="signal-graphic" viewBox="0 0 620 430" role="img" aria-label="A signal path moving through build, verify, and ship">
@@ -58,7 +60,7 @@ export default function HomePage() {
           <div className="hero-art">
             <SignalGraphic />
             <div className="portrait-frame">
-              <Image src="/assets/binary-portrait.png" alt="Binary collage portrait of Swapnil Thapa" width={760} height={960} priority />
+              <Image src={`${basePath}/assets/binary-portrait.png`} alt="Binary collage portrait of Swapnil Thapa" width={760} height={960} priority />
               <span className="portrait-caption">/ signal_profile_01</span>
             </div>
           </div>
