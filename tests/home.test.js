@@ -11,9 +11,19 @@ test("home content keeps the approved public boundaries", () => {
 });
 
 test("the home vertical slice has proof, current progression, and one featured project", () => {
-  assert.equal(proofPoints.length, 3);
+  assert.equal(proofPoints.length, 4);
   assert.equal(experiences[0].employer, "Verisk");
   assert.equal(experiences[0].progression?.[0].role, "Senior Software Development Engineer in Test");
   assert.equal(featuredProject.title, "Glove Controlled Car");
   assert.equal(about.title, "Reliability is a product feature.");
+});
+
+test("experience copy stays concise while preserving approved proof", () => {
+  assert.equal(experiences.length, 3);
+  assert.match(experiences[0].summary, /10 million execution logs/);
+  assert.match(experiences[1].summary, /43%/);
+  assert.match(experiences[1].summary, /\$10K/);
+  assert.match(experiences[2].summary, /millions of users/);
+  assert.equal(experiences[2].progression?.length, 2);
+  assert.equal(experiences.every((experience) => !("highlights" in experience)), true);
 });

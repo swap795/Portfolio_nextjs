@@ -25,8 +25,8 @@ export function ExperienceTabs({ experiences }: ExperienceTabsProps) {
       <div className="experience-tablist" role="tablist" aria-label="Experience by employer">
         {experiences.map((item, index) => {
           const selected = item.id === active.id;
-          const tabLabel = item.id === "church" ? "Church" : item.id === "internship" ? "Internship" : item.employer;
-          const tabPeriod = item.id === "verisk" ? "2024 - now" : item.id === "paytronix" ? "2022 - 2023" : item.id === "church" ? "2021 - 2022" : "2021";
+          const tabLabel = item.id === "church" ? "Church" : item.employer;
+          const tabPeriod = item.id === "verisk" ? "2024 - now" : item.id === "paytronix" ? "2022 - 2023" : "2021 - 2022";
           return (
             <button
               className={`experience-tab${selected ? " is-active" : ""}`}
@@ -68,7 +68,7 @@ export function ExperienceTabs({ experiences }: ExperienceTabsProps) {
         </div>
         <p className="experience-summary">{active.summary}</p>
         {active.progression && (
-          <div className="progression" aria-label="Verisk role progression">
+          <div className="progression" aria-label={`${active.employer} role progression`}>
             {active.progression.map((step, index) => (
               <div className="progression-step" key={`${step.period}-${step.role}`}>
                 <span className="progression-marker" aria-hidden="true">{index === 0 ? "●" : "○"}</span>
@@ -77,9 +77,6 @@ export function ExperienceTabs({ experiences }: ExperienceTabsProps) {
             ))}
           </div>
         )}
-        <ul className="experience-highlights">
-          {active.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-        </ul>
       </section>
     </div>
   );
