@@ -1,6 +1,6 @@
 # Minimal Motion Direction Handoff
 
-- Status: REVIEW
+- Status: IN PROGRESS
 - Updated: 2026-09-21
 - Branch: `st/minimal-motion-direction`
 - Base: `origin/main` at `021204438a7b2ecfe9c59516812763fe26ecc929`
@@ -13,6 +13,7 @@
 - Implemented the quiet proof-first hierarchy: one hero claim, supporting sentence, primary selected-work action, compact proof, one-line About, focused project, concise Contact, and owner-only footer.
 - Implemented bounded motion: 480 ms hero entrance with 80 ms art stagger, 15% IntersectionObserver reveals that unobserve after entry, 180 ms project lift/scale/arrow feedback, 220 ms mobile menu, and no continuous portrait animation.
 - Added the captain-requested one-time 2.1 second `stroke-dasharray`/`stroke-dashoffset` draw for the existing signal curve, with the completed path shown immediately under reduced motion.
+- Updated the signal region to replay the same draw only after the observed portrait region fully leaves the viewport and re-enters at a 0.35 threshold; it does not loop while visible and remains static under reduced motion.
 
 ## Decisions and Key Files
 
@@ -50,3 +51,4 @@
 
 - Captain requested a subtle one-time draw of the existing curved signal path behind the portrait, approximately 1.8 to 2.4 seconds, with the completed path shown immediately under reduced motion.
 - This follow-up remains within the approved motion vocabulary and preserves the portrait entrance, layering, mobile geometry, and accessibility.
+- Additional captain feedback superseded the one-time-only trigger: replay the draw on meaningful re-entry after the portrait region leaves the viewport, without threshold-edge flicker or reduced-motion resets.

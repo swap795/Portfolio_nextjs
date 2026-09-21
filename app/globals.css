@@ -60,6 +60,7 @@ button { font: inherit; }
 .button-primary { border-color: var(--cobalt); background: var(--cobalt); color: white; }
 .button-primary:hover, .button-primary:focus-visible { border-color: var(--cobalt-dark); background: var(--cobalt-dark); }
 .hero-art { position: relative; min-height: 505px; }
+.signal-motion-region { position: absolute; inset: 0; pointer-events: none; }
 .signal-graphic { position: absolute; top: 50%; left: 0; width: 118%; height: auto; transform: translate(-11%, -46%); }
 .signal-line { fill: none; stroke: url(#signal-fade); stroke-width: 4; }
 .signal-line-primary { stroke-dasharray: 1; stroke-dashoffset: 1; animation: signal-draw 2.1s cubic-bezier(.4, 0, .2, 1) 80ms forwards; }
