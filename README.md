@@ -22,4 +22,4 @@ The home page is intentionally server-rendered. The responsive menu and employer
 
 ## Deploy to GitHub Pages
 
-The `Deploy portfolio to GitHub Pages` workflow builds the static export and publishes `out/` on pushes to `main`. In the repository settings, set Pages to `GitHub Actions` as the source. Local development stays at the root URL; the Pages build uses `/Portfolio_nextjs` as its project-site base path.
+The `Deploy portfolio to GitHub Pages` workflow builds the static export and publishes `out/` on pushes to `main`. In the repository settings, set Pages to `GitHub Actions` as the source. Local development stays at the root URL; both workflows derive the Pages project-site base path from the current GitHub repository name, so repository renames keep generated asset URLs aligned.
