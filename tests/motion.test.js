@@ -23,6 +23,10 @@ test("motion contract is bounded, observable, and reduced-motion safe", () => {
   assert.doesNotMatch(reveal, /addEventListener\(["']scroll/);
   assert.match(styles, /@keyframes hero-enter[\s\S]*opacity: 0[\s\S]*transform: translateY\(18px\)/);
   assert.doesNotMatch(styles, /portrait-pulse|infinite/);
+  assert.match(styles, /\.signal-line-primary[\s\S]*stroke-dasharray: 1[\s\S]*stroke-dashoffset: 1/);
+  assert.match(styles, /@keyframes signal-draw[\s\S]*stroke-dashoffset: 0/);
+  assert.match(styles, /\.signal-line-primary \{ stroke-dashoffset: 0; \}/);
+  assert.match(styles, /signal-line-primary[\s\S]*animation: signal-draw 2\.1s/);
   assert.match(styles, /\.reveal[\s\S]*transition: opacity \.48s[\s\S]*transform \.48s/);
   assert.match(styles, /translateY\(-3px\)/);
   assert.match(styles, /scale\(1\.015\)/);

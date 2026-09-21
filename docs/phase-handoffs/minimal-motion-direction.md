@@ -1,6 +1,6 @@
 # Minimal Motion Direction Handoff
 
-- Status: REVIEW
+- Status: IN PROGRESS
 - Updated: 2026-09-21
 - Branch: `st/minimal-motion-direction`
 - Base: `origin/main` at `021204438a7b2ecfe9c59516812763fe26ecc929`
@@ -42,3 +42,8 @@
 - PR: https://github.com/swap795/swapnil-portfolio/pull/14
 - Preview: http://127.0.0.1:4173/ (keep PID 33495 running for captain review).
 - Remaining captain review: approve the preview as-is or request changes; nothing has been merged.
+
+## Follow-up feedback
+
+- Captain requested a subtle one-time draw of the existing curved signal path behind the portrait, approximately 1.8 to 2.4 seconds, with the completed path shown immediately under reduced motion.
+- This follow-up remains within the approved motion vocabulary and preserves the portrait entrance, layering, mobile geometry, and accessibility.
