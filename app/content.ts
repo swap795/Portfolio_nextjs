@@ -4,7 +4,6 @@ export type Experience = {
   period: string;
   role: string;
   summary: string;
-  highlights: string[];
   progression?: { period: string; role: string }[];
 };
 
@@ -22,19 +21,24 @@ export const site = {
 
 export const proofPoints = [
   {
-    label: "Current scope",
-    value: "Senior SDET",
-    detail: "Verisk",
+    label: "Observability scale",
+    value: "10M+ logs",
+    detail: "OpenSearch diagnostics",
   },
   {
-    label: "Specialty",
-    value: "Automation + release quality",
-    detail: "Software systems",
+    label: "Automation performance",
+    value: "43% faster",
+    detail: "Execution improvement",
   },
   {
-    label: "Foundation",
-    value: "Computer engineering",
-    detail: "BYU-Idaho",
+    label: "Operational efficiency",
+    value: "$10K+ saved",
+    detail: "Annual tooling cost",
+  },
+  {
+    label: "Product reach",
+    value: "Millions served",
+    detail: "Production Next.js",
   },
 ] as const;
 
@@ -45,11 +49,7 @@ export const experiences: Experience[] = [
     period: "Apr 2024 - Present",
     role: "Senior Software Development Engineer in Test",
     summary:
-      "Automation and release quality for a complex CAD-based product, with AI-assisted approaches to risk analysis, targeted testing, and test generation.",
-    highlights: [
-      "Own automation and release quality for a complex CAD-based product.",
-      "Develop AI-assisted approaches to risk analysis, targeted testing, and test generation.",
-    ],
+      "At Verisk, I build the systems behind reliable delivery for complex CAD software - from AI-assisted test workflows and auto-generated API clients to observability across more than 10 million execution logs.",
     progression: [
       {
         period: "Sep 2026 - Present",
@@ -71,34 +71,24 @@ export const experiences: Experience[] = [
     period: "May 2022 - Dec 2023",
     role: "Software Engineer in Test",
     summary:
-      "Expanded the automated test suite and helped teammates make progress with practical test-automation guidance.",
-    highlights: [
-      "Expanded the automated test suite.",
-      "Helped teammates make progress with practical test-automation guidance.",
-    ],
+      "At Paytronix, I built automation and CI/CD systems that improved execution performance by 43%, cut deployment time from more than 10 hours to 3, and replaced third-party tooling to save over $10K annually.",
   },
   {
     id: "church",
     employer: "The Church of Jesus Christ of Latter-day Saints",
-    period: "Aug 2021 - Apr 2022",
+    period: "Jan 2021 - Apr 2022",
     role: "Software Dev Engineer",
     summary:
-      "Built and maintained member-facing web experiences while working across product behavior and delivery.",
-    highlights: [
-      "Developed a web application to help members connect with families, classes, and responsibilities.",
-      "Consolidated blogs, articles, magazines, and other resources into the app.",
-    ],
-  },
-  {
-    id: "internship",
-    employer: "The Church of Jesus Christ of Latter-day Saints",
-    period: "Jan 2021 - Jul 2021",
-    role: "Web Development Intern",
-    summary:
-      "Built a web-development foundation through debugging, interface refinement, and collaborative delivery.",
-    highlights: [
-      "Debugged, troubleshot, and refined dynamic web apps and user interfaces.",
-      "Worked in an Agile software-development environment with project and cross-functional teams.",
+      "At the Church, I helped build a production Next.js application serving millions of users, delivering full-stack experiences across rich-text editing, real-time notifications, cloud services, and responsive React interfaces.",
+    progression: [
+      {
+        period: "Aug 2021 - Apr 2022",
+        role: "Software Dev Engineer",
+      },
+      {
+        period: "Jan 2021 - Jul 2021",
+        role: "Web Development Intern",
+      },
     ],
   },
 ];
