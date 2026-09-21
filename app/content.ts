@@ -9,7 +9,6 @@ export type Experience = {
 
 export const site = {
   name: "Swapnil Thapa",
-  descriptor: "Software + quality engineering",
   title: "Dependable software. Useful automation.",
   intro: "I build reliable software, automation, and delivery systems.",
   links: {
@@ -95,7 +94,7 @@ export const experiences: Experience[] = [
 export const featuredProject = {
   title: "Glove Controlled Car",
   eyebrow: "Embedded systems + motion",
-  description: "A gesture-controlled RC car that turns hand movement into motion.",
+  description: "Gesture-controlled RC car. MPU-6050 + dual HC-05 Bluetooth. Working C/Arduino prototype.",
   story: [
     {
       label: "Context",
@@ -116,7 +115,6 @@ export const featuredProject = {
 
 export const about = {
   eyebrow: "01 / About",
-  title: "Reliability is a product feature.",
   body: "I connect product engineering, automation, and delivery.",
   principle: "Setbacks are feedback. Learn, adjust, repeat.",
 } as const;
