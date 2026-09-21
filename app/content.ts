@@ -11,8 +11,7 @@ export const site = {
   name: "Swapnil Thapa",
   descriptor: "Software + quality engineering",
   title: "Dependable software. Useful automation.",
-  intro:
-    "I build dependable software and automation teams can trust - connecting computer engineering foundations, product thinking, and quality systems into maintainable work that ships.",
+  intro: "I build reliable software, automation, and delivery systems.",
   links: {
     github: "https://github.com/swap795",
     linkedin: "https://www.linkedin.com/in/swapnilthapa95",
@@ -96,20 +95,19 @@ export const experiences: Experience[] = [
 export const featuredProject = {
   title: "Glove Controlled Car",
   eyebrow: "Embedded systems + motion",
-  description:
-    "A motion-sensor RC car driven by the gestures of a hand - a hardware project that connects sensing, communication, and physical response.",
+  description: "A gesture-controlled RC car that turns hand movement into motion.",
   story: [
     {
       label: "Context",
-      value: "Hand gestures become the input for a small RC car.",
+      value: "Hand gestures control the car.",
     },
     {
       label: "Build",
-      value: "An MPU-6050 gyroscope sends motion data through two HC-05 Bluetooth modules.",
+      value: "MPU-6050 + dual HC-05 Bluetooth.",
     },
     {
       label: "Result",
-      value: "A working gesture-controlled car built with C, Arduino, and supporting hardware.",
+      value: "A working C and Arduino system.",
     },
   ],
   tags: ["C", "Arduino", "MPU-6050", "Bluetooth"],
@@ -119,7 +117,6 @@ export const featuredProject = {
 export const about = {
   eyebrow: "01 / About",
   title: "Reliability is a product feature.",
-  body: "I build reliable desktop and web software by connecting quality engineering, automation, and delivery. My computer engineering foundation helps me move between product behavior, test systems, release pipelines, and diagnostic tooling.",
-  principle:
-    'I call my working principle the “video game effect”: treat each setback as feedback, learn the pattern, and keep iterating until the system works.',
+  body: "I connect product engineering, automation, and delivery.",
+  principle: "Setbacks are feedback. Learn, adjust, repeat.",
 } as const;
