@@ -27,3 +27,18 @@ test("experience copy stays concise while preserving approved proof", () => {
   assert.equal(experiences[2].progression?.length, 2);
   assert.equal(experiences.every((experience) => !("highlights" in experience)), true);
 });
+
+test("non-experience copy stays intentionally minimal", () => {
+  assert.equal(site.intro, "I build reliable software, automation, and delivery systems.");
+  assert.equal(about.body, "I connect product engineering, automation, and delivery.");
+  assert.equal(about.principle, "Setbacks are feedback. Learn, adjust, repeat.");
+  assert.equal(featuredProject.description, "A gesture-controlled RC car that turns hand movement into motion.");
+  assert.deepEqual(
+    featuredProject.story.map((item) => item.value),
+    [
+      "Hand gestures control the car.",
+      "MPU-6050 + dual HC-05 Bluetooth.",
+      "A working C and Arduino system.",
+    ],
+  );
+});
