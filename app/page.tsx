@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ExperienceTabs } from "./components/experience-tabs";
+import { ReplayOnEntry } from "./components/motion-replay";
 import { Reveal } from "./components/reveal";
 import { SignalGraphic } from "./components/signal-graphic";
 import { about, experiences, featuredProject, proofPoints, site } from "./content";
@@ -27,7 +28,7 @@ export default function HomePage() {
   return (
     <main id="main-content">
       <section className="hero" id="home" aria-labelledby="hero-title">
-        <div className="container hero-grid">
+        <ReplayOnEntry className="container hero-grid" initiallyVisible enterThreshold={0.15} exitThreshold={0.05}>
           <div className="hero-copy">
             <h1 id="hero-title">{site.title}</h1>
             <p className="hero-intro">{site.intro}</p>
@@ -42,7 +43,7 @@ export default function HomePage() {
               <span className="portrait-caption">/ signal_profile_01</span>
             </div>
           </div>
-        </div>
+        </ReplayOnEntry>
       </section>
 
       <Reveal>
