@@ -15,7 +15,7 @@ test("the home vertical slice has proof, current progression, and one featured p
   assert.equal(experiences[0].employer, "Verisk");
   assert.equal(experiences[0].progression?.[0].role, "Senior Software Development Engineer in Test");
   assert.equal(featuredProject.title, "Glove Controlled Car");
-  assert.equal(about.title, "Reliability is a product feature.");
+  assert.equal(about.body, "I connect product engineering, automation, and delivery.");
 });
 
 test("experience copy stays concise while preserving approved proof", () => {
@@ -32,7 +32,7 @@ test("non-experience copy stays intentionally minimal", () => {
   assert.equal(site.intro, "I build reliable software, automation, and delivery systems.");
   assert.equal(about.body, "I connect product engineering, automation, and delivery.");
   assert.equal(about.principle, "Setbacks are feedback. Learn, adjust, repeat.");
-  assert.equal(featuredProject.description, "A gesture-controlled RC car that turns hand movement into motion.");
+  assert.equal(featuredProject.description, "Gesture-controlled RC car. MPU-6050 + dual HC-05 Bluetooth. Working C/Arduino prototype.");
   assert.deepEqual(
     featuredProject.story.map((item) => item.value),
     [

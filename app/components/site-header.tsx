@@ -4,10 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "../content";
 
 const links = [
-  { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
+  { href: "#projects", label: "Work" },
 ];
 
 export function SiteHeader() {
